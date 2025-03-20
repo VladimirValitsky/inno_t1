@@ -3,42 +3,50 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Task 1</title>  
+    <title>Task 1</title>
+	<link rel="stylesheet" href="/static/styles.css">
 </head>  
 <body>
-	
-    <form id="run-form-1" method="POST" action="/create_tables">
-		<h3>Create tables in DB</h3> 
-        <button type="submit">Create</button>  
-    </form>  
-    
-    <div id="script-result-1"></div>
-	<hr>
-	  
-    <form method="POST">
-		<h2>Load Data to DB</h2>
-    	<h3>Write Student file path (d - as default path 'data/'):</h3>
-        <input type="text" name="students_path" required placeholder="path">
-		<input type="text" name="rooms_path" required placeholder="path"> 
-        <input type="submit" value="Submit">  
-    </form>  
-    
-    <h2>{{ result }}</h2> 
-	<hr>
-     
-    <form id="run-form-2" method="POST" action="/upload_data"> 
-		<h2>Upload Data to file</h2> 
-		<h3>Choose data saving format (json or xml):</h3>
-        <input type="text" name="file_format" required placeholder="format"> 
-        <button type="submit">Upload</button>  
-    </form>  
-    
-    <div id="script-result-2"></div> 
-	<hr>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-	<div class='footer'>
+
+	<article class="all-browsers">
+		<h1>Task 1. Load/Upload Data</h1>
+
+		<article class="browser">
+			<form id="run-form-1" method="POST" action="/create_tables">
+				<h3>Create tables in DB</h3> 
+				<button type="submit">Create</button>  
+			</form>  
+			<div id="script-result-1"></div>
+		</article>
+
+		<article class="browser">
+			<form method="POST">
+				<h2>Load Data to DB</h2>
+				<h3>Write Student file path (d - as default path 'data/'):</h3>
+				<input type="text" name="students_path" required placeholder="path">
+				<input type="text" name="rooms_path" required placeholder="path"> 
+				<input type="submit" value="Submit">  
+			</form>  
+			<h2>{{ result }}</h2> 
+		</article>
+
+		<article class="browser">
+			<form id="run-form-2" method="POST" action="/upload_data"> 
+				<h2>Upload Data to file</h2> 
+				<h3>Choose data saving format (json or xml):</h3>
+				<input type="text" name="file_format" required placeholder="format"> 
+				<button type="submit">Upload</button>  
+			</form>  
+			<div id="script-result-2"></div> 
+		</article>
+	  </article>
+
+	<footer>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 		<a href="https://github.com/VladimirValitsky/inno_t1.git"><i class="fab fa-github" style='font-size:30px'></i></a>
-	</div> 
+		<br></br>
+		<p>Copyright © 2025 Vladimir Valitski - Innowise</p>
+	</footer>
 
     <script>   
         async function runScript(formId, resultDivId) {  
