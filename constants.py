@@ -21,5 +21,8 @@ JSON_STUDENTS_PATH = "data/students.json"
 JSON_ROOMS_PATH = 'data/rooms.json'
 
 # Path to results
-RESULTS_PATH = 'results/'
+PATH_RESULTS = 'results/'
+
+# Folders
+FOLDER_RESULTS = 'results'
 

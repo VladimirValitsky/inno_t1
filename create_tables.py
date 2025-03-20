@@ -35,9 +35,9 @@ CREATE INDEX idx_students_birthday ON {schema}.{table_students}(birthday);
 """
 
 try:
-    # connection.execute(text(create_schema_query))
-    # connection.execute(text(create_rooms_query))
-    # connection.execute(text(create_students_query))
+    connection.execute(text(create_schema_query))
+    connection.execute(text(create_rooms_query))
+    connection.execute(text(create_students_query))
     connection.execute(text(add_room_index))
     connection.execute(text(add_birthday_index))
     connection.commit()
