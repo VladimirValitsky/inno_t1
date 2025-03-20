@@ -1,0 +1,56 @@
+<!DOCTYPE html>  
+<html lang="ru">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Приветствие</title>  
+</head>  
+<body>  
+	  
+    <form method="POST">
+		<h2>Load Data to DB</h2>
+    	<h3>Write Student file path (d - as default path 'data/'):</h3>
+        <input type="text" name="students_path" required placeholder="path">
+		<input type="text" name="rooms_path" required placeholder="path"> 
+        <input type="submit" value="Submit">  
+    </form>  
+    
+    <h2>{{ result }}</h2>  
+
+    <h1>Create tables in DB</h1>  
+    <form id="run-form-1" method="POST" action="/create_tables">  
+        <button type="submit">Create</button>  
+    </form>  
+    
+    <div id="script-result-1"></div>  
+
+    <h1>Запуск второго скрипта</h1>  
+    <form id="run-form-2" method="POST" action="/run_script_2">  
+        <button type="submit">Запустить второй скрипт</button>  
+    </form>  
+    
+    <div id="script-result-2"></div>  
+
+    <script>  
+        // Функция для обработки AJAX запросов  
+        async function runScript(formId, resultDivId) {  
+            const form = document.getElementById(formId);  
+            const response = await fetch(form.action, {  
+                method: 'POST'  
+            });  
+            const message = await response.text();  
+            document.getElementById(resultDivId).innerText = message; // Показываем результат выполнения  
+        }  
+        
+        document.getElementById('run-form-1').onsubmit = function(event) {  
+            event.preventDefault(); // Предотвращаем стандартное поведение формы  
+            runScript('run-form-1', 'script-result-1');  
+        };  
+        
+        document.getElementById('run-form-2').onsubmit = function(event) {  
+            event.preventDefault(); // Предотвращаем стандартное поведение формы  
+            runScript('run-form-2', 'script-result-2');  
+        };  
+    </script>  
+</body>  
+</html>  
