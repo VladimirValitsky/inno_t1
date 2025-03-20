@@ -59,18 +59,19 @@ def check_results_folder():
     if not os.path.exists(const.FOLDER_RESULTS):
         os.makedirs(const.FOLDER_RESULTS)
 
-def main():
+def data_upload(file_format_choice):
+    result_message = ''
     check_results_folder()
 
-    # Ask user to choose saving format
-    format_choice = input("Choose data saving format (json or xml): ").strip().lower()
+    format_choice = file_format_choice.strip().lower()
 
     if format_choice == 'json':
         save_as_json(format_choice, get_json_data())
+        result_message = "Data successfully uploaded to JSON files" 
     elif format_choice == 'xml':
         save_as_xml(format_choice, get_json_data())
+        result_message = "Data successfully uploaded to XML files" 
     else:
         print("Wrong data saving format. Try again")
-
-if __name__ == '__main__':
-    main()
+        result_message = "Wrong data saving format. Try again"
+    return result_message
