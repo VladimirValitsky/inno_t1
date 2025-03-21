@@ -1,3 +1,6 @@
+"""  
+    File for creating schema, tables and indexes in DB  
+"""
 import constants as const
 from db_connection import schema, connection
 from sqlalchemy import text
@@ -35,17 +38,19 @@ CREATE INDEX idx_students_birthday ON {schema}.{table_students}(birthday);
 """
 
 
-
+"""  
+    Executes SQL queries to create the schema, rooms table, students table,  
+    along with adding relevant indexes for optimization.
+    Returns:  
+        None  
+    """ 
 def create_DBtables():
     try:
-        print('CREATE TABLES')
         connection.execute(text(create_schema_query))
         connection.execute(text(create_rooms_query))
         connection.execute(text(create_students_query))
         connection.execute(text(add_room_index))
         connection.execute(text(add_birthday_index))
         connection.commit()
-        print('Tables was created')
-
     except Exception as creation_error:
         print(f'Error: during metadata creation: {creation_error}')

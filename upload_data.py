@@ -1,3 +1,6 @@
+"""  
+    File for data upload froom DB based on input patametr: json or xml  
+"""
 import json
 import xml.etree.ElementTree as et
 from sqlalchemy import create_engine, text
@@ -59,6 +62,14 @@ def check_results_folder():
     if not os.path.exists(const.FOLDER_RESULTS):
         os.makedirs(const.FOLDER_RESULTS)
 
+"""  
+    Orchestrates the data upload process to either JSON or XML formats based   
+    on user input.  
+    Parameters:  
+        file_format_choice (str): The chosen format for data saving ("json" or "xml").  
+    Returns:  
+        str: A message indicating the success or failure of the upload process.  
+""" 
 def data_upload(file_format_choice):
     result_message = ''
     check_results_folder()

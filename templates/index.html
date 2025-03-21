@@ -9,11 +9,12 @@
 <body>
 
 	<article class="all-browsers">
-		<h1>Task 1. Load/Upload Data</h1>
+		<h2>Task 1. Load/Upload Data</h2>
+		<h3>Perform actions sequentially</h3>
 
 		<article class="browser">
 			<form id="run-form-1" method="POST" action="/create_tables">
-				<h3>Create tables in DB</h3> 
+				<h4>1. Create tables in DB</h4> 
 				<button type="submit">Create</button>  
 			</form>  
 			<div id="script-result-1"></div>
@@ -21,10 +22,10 @@
 
 		<article class="browser">
 			<form method="POST">
-				<h2>Load Data to DB</h2>
-				<h3>Write Student file path (d - as default path 'data/'):</h3>
-				<input type="text" name="students_path" required placeholder="path">
-				<input type="text" name="rooms_path" required placeholder="path"> 
+				<h4>2. Load Data to DB</h4>
+				<h5>Write Student and Rooms file path (d - as default path 'data/')</h5>
+				<input type="text" name="students_path" required placeholder="student path">
+				<input type="text" name="rooms_path" required placeholder="rooms path"> 
 				<input type="submit" value="Submit">  
 			</form>  
 			<h2>{{ result }}</h2> 
@@ -32,9 +33,12 @@
 
 		<article class="browser">
 			<form id="run-form-2" method="POST" action="/upload_data"> 
-				<h2>Upload Data to file</h2> 
-				<h3>Choose data saving format (json or xml):</h3>
-				<input type="text" name="file_format" required placeholder="format"> 
+				<h4>3. Upload Data to file</h4> 
+				<label for="format"> Choose data saving format:</label>
+				<select id="format" name="file_format">
+					<option value="json">JSON</option>
+					<option value="xml">XML</option>
+				</select>
 				<button type="submit">Upload</button>  
 			</form>  
 			<div id="script-result-2"></div> 
@@ -43,25 +47,22 @@
 
 	<footer>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-		<a href="https://github.com/VladimirValitsky/inno_t1.git"><i class="fab fa-github" style='font-size:30px'></i></a>
+		<a href="https://github.com/VladimirValitsky/inno_t1.git"  target="_blank"><i class="fab fa-github" style='font-size:30px'></i></a>
 		<br></br>
 		<p>Copyright © 2025 Vladimir Valitski - Innowise</p>
 	</footer>
 
     <script>   
         async function runScript(formId, resultDivId) {  
-            const form = document.getElementById(formId);  
+            const form = document.getElementById(formId);
+			const formData = new FormData(form); 
             const response = await fetch(form.action, {  
-                method: 'POST'  
+                method: 'POST',
+				body: formData
             });  
             const message = await response.text();  
             document.getElementById(resultDivId).innerText = message;
         }  
-        
-		document.getElementById('run-form-0').onsubmit = function(event) {  
-            event.preventDefault();
-            runScript('run-form-0', 'script-result-0');  
-        }; 
         
 		document.getElementById('run-form-1').onsubmit = function(event) {  
             event.preventDefault();

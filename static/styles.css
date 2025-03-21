@@ -1,7 +1,15 @@
+html, body {  
+    height: 100%;  
+    margin: 0;
+    display: flex;  
+    flex-direction: column; 
+}
+
 .all-browsers {
 	margin: 0;
 	padding: 5px;
 	background-color: lightgray;
+	flex: 1;
 }
   
 .all-browsers > h1, .browser {
@@ -17,6 +25,11 @@
 	margin: 4px;
 	font-size: 90%;
 }
+
+#script-result-2, #script-result-1 {  
+    color: green;
+}  
+
   
 footer {
 	text-align: center;
