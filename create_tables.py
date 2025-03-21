@@ -43,7 +43,7 @@ CREATE INDEX idx_students_birthday ON {schema}.{table_students}(birthday);
     along with adding relevant indexes for optimization.
     Returns:  
         None  
-    """ 
+""" 
 def create_DBtables():
     try:
         connection.execute(text(create_schema_query))

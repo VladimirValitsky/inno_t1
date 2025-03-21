@@ -1,0 +1,28 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Results</title>  
+    <link rel="stylesheet" href="/static/styles.css"> 
+</head>  
+<body>  
+
+<h2>Uploaded Files</h2>  
+<article class="results">  
+    {% if files %}  
+        <ul>  
+            {% for file in files %}  
+                <li>  
+                    <a href="{{ url_for('download_file', filename=file) }}">{{ file }}</a>  
+                </li>  
+            {% endfor %}  
+        </ul>  
+    {% else %}  
+        <p>No files found.</p>  
+    {% endif %}  
+</article>  
+
+<a href="/">Go back to Main page</a>  
+
+</body>  
+</html>  

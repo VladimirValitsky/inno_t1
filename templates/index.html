@@ -32,7 +32,7 @@
 		</article>
 
 		<article class="browser">
-			<form id="run-form-2" method="POST" action="/upload_data"> 
+			<form id="run-form-2" method="POST" action="{{ url_for('upload_data') }}"> 
 				<h4>3. Upload Data to file</h4> 
 				<label for="format"> Choose data saving format:</label>
 				<select id="format" name="file_format">
@@ -59,9 +59,13 @@
             const response = await fetch(form.action, {  
                 method: 'POST',
 				body: formData
-            });  
-            const message = await response.text();  
-            document.getElementById(resultDivId).innerText = message;
+            });
+			if (response.redirected) {  
+                window.location.href = response.url;
+            } else {  
+                const message = await response.text(); 
+				document.getElementById(resultDivId).innerText = message;
+            }  
         }  
         
 		document.getElementById('run-form-1').onsubmit = function(event) {  
