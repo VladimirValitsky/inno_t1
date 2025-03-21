@@ -1,3 +1,6 @@
+"""  
+    File for load data to  DB based on path  
+"""
 import pandas as pd
 import constants as const
 from db_connection import connection, schema
@@ -16,10 +19,19 @@ def read_json_file(file_path):
 
 
 def load_data(students_file_path, rooms_file_path):
+    """  
+    Loads studentы and roomы data from specified JSON files into the database.  
+    Parameters:  
+        students_file_path (str): The path to the students JSON file.  
+        rooms_file_path (str): The path to the rooms JSON file.  
+    Returns:  
+        str: A message indicating the success or failure of the data loading process.  
+    """
     result_message = ''
     input_student_file_path = students_file_path.strip().lower()
     input_rooms_file_path = rooms_file_path.strip().lower()
 
+    # Use default paths if 'd' is provided; otherwise, use supplied file paths
     if input_student_file_path == 'd':
         student_path = default_students_path
     else:
@@ -44,8 +56,8 @@ def load_data(students_file_path, rooms_file_path):
             result_message = "Data successfully loaded from JSON to db tables"
 
         except Exception as loading_error:
-            print(f'Error: during loading data: {loading_error}')
-            result_message = f'Error: during loading data: {loading_error}'
+            print(f'Warning: during loading data: {loading_error}')
+            result_message = 'Warning:  The data being loaded already exists in the database'
 
     except Exception as reading_error:
         print(f'Error: File path is invalid. Choose correct one.')
