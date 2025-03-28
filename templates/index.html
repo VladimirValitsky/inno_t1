@@ -9,8 +9,23 @@
 <body>
 
 	<article class="all-browsers">
-		<h2>Task 1. Load/Upload Data</h2>
-		<h3>Perform actions sequentially</h3>
+		<div class="container">   
+            <div class="link-container">
+				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+				<a href="https://github.com/VladimirValitsky?tab=repositories"  target="_blank"><i class="fab fa-github" style='font-size:30px'></i></a> 
+                <a href="https://github.com/VladimirValitsky/inno_t1.git" target="_blank">Task 1</a>  
+                <a href="https://github.com/VladimirValitsky/inno_t2.git" target="_blank">Task 2</a>  
+                <a href="https://github.com/VladimirValitsky/inno_t3.git" target="_blank">Task 3</a>  
+                <a href="/" target="_blank">Task 4</a>  
+                <a href="/" target="_blank">Task 5</a>  
+                <a href="/" target="_blank">Task 6</a>  
+            </div>  
+        </div>  
+
+		<div class="header">
+			<h3>Task 1. Load/Upload Data</h3>
+			<h4>Perform actions sequentially</h4>
+		</div>
 
 		<article class="browser">
 			<form id="run-form-1" method="POST" action="/create_tables">
@@ -23,8 +38,8 @@
 		<article class="browser">
 			<form method="POST">
 				<h4>2. Load Data to DB</h4>
-				<h5>Write Student and Rooms file path (d - as default path 'data/')</h5>
-				<input type="text" name="students_path" required placeholder="student path">
+				<h5>Choose Students and Rooms file path (d - as default path 'data/')</h5>
+				<input type="text" name="students_path" required placeholder="students path">
 				<input type="text" name="rooms_path" required placeholder="rooms path"> 
 				<input type="submit" value="Submit">  
 			</form>  
@@ -46,9 +61,6 @@
 	  </article>
 
 	<footer>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-		<a href="https://github.com/VladimirValitsky/inno_t1.git"  target="_blank"><i class="fab fa-github" style='font-size:30px'></i></a>
-		<br></br>
 		<p>Copyright © 2025 Vladimir Valitski - Innowise</p>
 	</footer>
 
